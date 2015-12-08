@@ -1,0 +1,15 @@
+{
+  "name": "learnimmutableflux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RequireSun",
+  "license": "MIT"
+}
