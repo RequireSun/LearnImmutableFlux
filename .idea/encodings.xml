@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/scripts/app.jsx" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/store/CommentStore.jsx" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/view/commentForm.jsx" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/view/comments.jsx" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bower.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
   </component>
