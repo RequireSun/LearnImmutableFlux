@@ -1,4 +1,4 @@
-define(['react', 'store/CommentStore'], function (React, CommentStore) {
+define(['react', 'store/commentStore'], function (React, CommentStore) {
     function getStateFromStore() {
         return {
             comments: CommentStore.getAll()
@@ -6,8 +6,8 @@ define(['react', 'store/CommentStore'], function (React, CommentStore) {
     }
 
     class Comments extends React.Component {
-        constructor (props) {
-            super(props);
+        constructor (props, context) {
+            super(props, context);
             this.state = getStateFromStore();
         }
 
@@ -15,16 +15,12 @@ define(['react', 'store/CommentStore'], function (React, CommentStore) {
             this.setState(getStateFromStore());
         }
 
-        //getInitialState () {
-        //    return getStateFromStore();
-        //}
-
         componentDidMount () {
-            CommentStore.addChangeListener(this.onChange);
+            CommentStore.addChangeListener(this.onChange.bind(this));
         }
 
         componentWillUnmount () {
-            CommentStore.removeChangeListener(this.onChange);
+            CommentStore.removeChangeListener(this.onChange.bind(this));
         }
 
         render () {

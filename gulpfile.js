@@ -45,7 +45,7 @@ gulp.task('javascript', function () {
         .pipe(gulp.dest(dist('scripts/lib')))
         .pipe(livereload());
     gulp.src(app('scripts/**/*.js'))
-        //.pipe(babel({ presets: ['es2015'] }))
+        .pipe(babel({ presets: ['es2015'] }))
         .pipe(gulp.dest(dist('scripts')))
         .pipe(livereload());
 });

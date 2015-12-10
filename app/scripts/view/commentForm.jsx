@@ -1,6 +1,6 @@
-define(['react', 'action/CommentActionCreators'], function (React, CommentActionCreators) {
-    var CommentForm = React.createClass({
-        onSubmit: function (e) {
+define(['react', 'action/commentActionCreators'], function (React, CommentActionCreators) {
+    class CommentForm extends React.Component {
+        onSubmit (e) {
             var textNode = this.refs.text;
             var text = textNode.value;
 
@@ -9,17 +9,17 @@ define(['react', 'action/CommentActionCreators'], function (React, CommentAction
             CommentActionCreators.createComment({
                 text: text
             });
-        },
+        }
 
-        render: function () {
+        render () {
             return (
                 <div className='comment-form'>
                     <textarea ref='text' />
-                    <button onClick={this.onSubmit}>Submit</button>
+                    <button onClick={this.onSubmit.bind(this)}>Submit</button>
                 </div>
             );
         }
-    });
+    }
 
     return CommentForm;
 });

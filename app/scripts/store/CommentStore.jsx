@@ -1,4 +1,4 @@
-define(['dispatcher/AppDispatcher', 'common/event'], function (AppDispatcher, Event) {
+define(['dispatcher/appDispatcher', 'common/event'], function (AppDispatcher, Event) {
     var comments = [];
 
     var CommentStore = {
@@ -21,7 +21,7 @@ define(['dispatcher/AppDispatcher', 'common/event'], function (AppDispatcher, Ev
 
     AppDispatcher.register(function(action) {
         switch(action.actionType) {
-            case "CREAT_COMMENT":
+            case "CREATE_COMMENT":
                 comments.push(action.comment);
                 CommentStore.emitChange();
                 break;
