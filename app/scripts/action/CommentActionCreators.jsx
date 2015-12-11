@@ -7,6 +7,14 @@ define(['react', 'dispatcher/appDispatcher'], function (React, AppDispatcher) {
             };
 
             AppDispatcher.dispatch(action);
+        },
+        deleteComment: function (number) {
+            var action = {
+                actionType: 'DELETE_COMMENT',
+                number: number
+            };
+
+            AppDispatcher.dispatch(action);
         }
     };
 });

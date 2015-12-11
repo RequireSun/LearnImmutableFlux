@@ -21,8 +21,12 @@ define(['dispatcher/appDispatcher', 'common/event'], function (AppDispatcher, Ev
 
     AppDispatcher.register(function(action) {
         switch(action.actionType) {
-            case "CREATE_COMMENT":
+            case 'CREATE_COMMENT':
                 comments.push(action.comment);
+                CommentStore.emitChange();
+                break;
+            case 'DELETE_COMMENT':
+                comments.splice(action.number, 1);
                 CommentStore.emitChange();
                 break;
             default:
