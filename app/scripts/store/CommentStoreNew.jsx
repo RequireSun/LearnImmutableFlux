@@ -1,7 +1,9 @@
-define(['common/event'], function (Event) {
-    var comments = [];
+'use strict';
+define(['immutable' , 'common/event'], function (Immutable, Event) {
+    let store = Immutable.Map();
+    store = store.set('comments', Immutable.List());
 
-    var CommentStore = {
+    let CommentStore = {
         emitChange: function() {
             Event.emit('commentStore.change');
         },
@@ -15,16 +17,18 @@ define(['common/event'], function (Event) {
         },
 
         getAll: function() {
-            return comments;
+            return store;
         }
     };
 
     Event.on('dispatcher.createComment', function (comment) {
-        comments.push(comment);
+        let comments = store.get('comments').push(Immutable.Map(comment));
+        store = store.set('comments', comments);
         CommentStore.emitChange();
     });
     Event.on('dispatcher.deleteComment', function (number) {
-        comments.splice(number, 1);
+        let comments = store.get('comments').delete(number);
+        store = store.set('comments', comments);
         CommentStore.emitChange();
     });
 

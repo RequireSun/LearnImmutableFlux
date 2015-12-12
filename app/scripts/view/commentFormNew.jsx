@@ -1,12 +1,13 @@
+'use strict';
 define(['react', 'common/event'], function (React, Event) {
     class CommentForm extends React.Component {
         onSubmit (e) {
-            var textNode = this.refs.text;
-            var text = textNode.value;
+            let textNode = this.refs.text,
+                text = textNode.value;
 
             textNode.value = '';
 
-            Event.emit('dispatcher.createComment', { text: text });
+            Event.emit('dispatcher.createComment', { text: text, time: new Date });
         }
 
         render () {
