@@ -1,4 +1,4 @@
-define(['react', 'store/commentStore'], function (React, CommentStore) {
+define(['react', 'store/commentStore', 'action/commentActionCreators'], function (React, CommentStore, CommentActionCreators) {
     function getStateFromStore() {
         return {
             comments: CommentStore.getAll()
@@ -28,6 +28,7 @@ define(['react', 'store/commentStore'], function (React, CommentStore) {
                 return (
                     <div className='comment' key={'comment-' + index}>
                         {comment.text}
+                        <button onClick={CommentActionCreators.deleteComment.bind(null, index)}>x</button>
                     </div>
                 );
             });

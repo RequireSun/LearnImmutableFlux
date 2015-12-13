@@ -21,7 +21,6 @@ define(['jquery'], function ($) {
             context: context
         });
     }
-
     /**
      * 事件解绑
      * @param type      事件名
