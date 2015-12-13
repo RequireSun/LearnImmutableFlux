@@ -6,7 +6,6 @@
 define(['jquery'], function ($) {
     // 事件队列
     let _events = {};
-
     /**
      * 事件绑定
      * @param type      事件名
